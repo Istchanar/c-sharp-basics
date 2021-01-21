@@ -8,10 +8,10 @@ namespace lesson1
         {
             // Спрашиваем ввод имени:
             Console.Write("Введите своё имя: ");
-            Console.ReadLine();
-
             // Сохраняем введённое имя:
             string name = Console.ReadLine();
+            Console.ReadLine();
+
             // Объявляем переменную  date, которая представляет из себя
             // структуру со свойством Now и метод форматирования ToShortDateString:
             string date = DateTime.Now.ToShortDateString();
