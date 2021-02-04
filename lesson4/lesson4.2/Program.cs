@@ -12,11 +12,11 @@ namespace lesson4._2
                 $"\nразделенных пробелом, и возвращающую число — сумму всех чисел в строке. " +
                 $"\nВвести данные с клавиатуры и вывести результат на экран.");
 
-            Console.ResetColor();
-
-            Console.WriteLine();
+            Print();
 
             Console.WriteLine($"Введите числа для суммирования: ");
+
+            // Чтобы считалось правильно нужно менять на запятую;
 
             string sumString = Console.ReadLine().Replace('.', ',');
 
@@ -24,7 +24,9 @@ namespace lesson4._2
 
             string[] sumArray = sumString.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-            double sumTotal = sumCalc(sumArray); // Отдаём в метод sumCalc введённый массив sumArray;
+            // Отдаём в метод sumCalc введённый массив sumArray;
+
+            double sumTotal = SumCalc(sumArray);
 
             Console.WriteLine($"Сумма введённых чисел равна: {sumTotal}");
 
@@ -32,24 +34,40 @@ namespace lesson4._2
 
         }
 
-        static double sumCalc(string[] sumArray) // Считающий сумму и парсящий из массива строки метод;
+        static double SumCalc(string[] sumArray) // Считающий сумму и парсящий из массива строки метод;
         {
-            double firstSum = 0; // Стартовая сумма;
+            // Стартовая сумма;
 
-            foreach (string number in sumArray) // Берём строку в массиве;
+            double firstSum = 0;
+
+            // Берём строку в массиве;
+
+            foreach (string number in sumArray) 
             {
                 double value;
 
-                bool succesParse = double.TryParse(number, out value); // Вернуть double, если он успешно распаршен из строки;
+                // Вернуть double.value, если он успешно распаршен из строки;
 
-                if (succesParse) // Если парсинг успешный - прибавить значения дабла к нулю;
+                bool succesParse = double.TryParse(number, out value);
+
+                if (succesParse) // Если парсинг успешный (есть элементы в sumArray) - прибавить value к firstSum;
 
                 {
-                    firstSum = firstSum + value; // Итоговое значение firstSum;
+                    // Пересчитываем firstSum;
+                    firstSum += value;
                 }
+
             }
 
             return firstSum;
+
+            
+        }
+        static void Print()
+        {
+            Console.ResetColor();
+
+            Console.WriteLine();
         }
     }
 }

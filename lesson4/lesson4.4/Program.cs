@@ -4,7 +4,6 @@ namespace lesson4._4
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
@@ -12,55 +11,41 @@ namespace lesson4._4
             Console.WriteLine($"Задание 4. Написать программу, вычисляющую число Фибоначчи для " +
                 $"\nзаданного значения рекурсивным способом.");
 
-            Console.ResetColor();
+            Line();
 
-            Console.WriteLine();
+            int number = Convert.ToInt32(Console.ReadLine());
 
-            int number = GetNumber(); // Вызываем метод GetNumber;
+            int x = FibonacciNumCalc(number);
 
-            int fibonacci = FibonacciNumCalc(number, 0); // Отдаём в метод значения number и ноль;
+            Console.ForegroundColor = ConsoleColor.Green;
 
-            Console.WriteLine();
-
-            Console.WriteLine($"Значение: {fibonacci}");
+            Console.WriteLine($"Число Фибоначчи равно {x} для значения {number}");
 
             Console.ReadLine();
         }
 
-        static int GetNumber()
+        static int FibonacciNumCalc(int number)
         {
-            Console.WriteLine($"Введите номер для вычисления значения: ");
-
-            Console.WriteLine();
-
-            int fibonacciNum; // Номер числа Фибоначчи;
-
-            int fibonacciTryParse; // Резульат парсинга введённого числа;
-
-            bool fibonacciParse = int.TryParse(Console.ReadLine(), out fibonacciTryParse);
-
-            if (fibonacciParse) // Если всё хорошо, то номер равен результату парсинга, если нет - нулю;
+            if (number == 0)
             {
-                fibonacciNum = fibonacciTryParse;
-            }
-            else
-            {
-                fibonacciNum = 0;
+               return 0;
             }
 
+            if (number == 1)
+            {
+               return 1;
+            }
 
-            return fibonacciNum;
+            return FibonacciNumCalc(number - 1) + FibonacciNumCalc(number - 2);
+
         }
 
-        static int FibonacciNumCalc(int number, int i)
+
+        static void Line()
         {
+            Console.ResetColor();
 
-            if (i == number)
-            {
-                return i;
-            }
-
-            return i + FibonacciNumCalc(number, ++i);
+            Console.WriteLine();
         }
 
     }

@@ -14,13 +14,11 @@ namespace lesson4
 
             Console.ResetColor();
 
-            Console.WriteLine();
-
             string[] info = new string[3];
 
-            for (int i = 0; i < 3; i++) // Циклом перебираем каждый элемент;
+            for (int i = 0; i < 3; i++) // Циклом перебираем каждый элемент и присваиваем значение строки полученной при роботе метода SetUserData;
             {
-                info[i] = setUserData();
+                info[i] = SetUserData();
             }
 
             foreach (string fullLine in info)  // Для каждого элемнта в массиве вывести строку;
@@ -37,25 +35,26 @@ namespace lesson4
             return fullNameString;
         }
 
-        static string setUserData()     // Устанавливаются данные пользователей;
+        static string SetUserData()     // Устанавливаются данные пользователей ;
         {
-            string fstName = writeRead($"Введите имя: ");
+            string fstName = WriteRead($"Введите имя: "); // Вызываем WriteLine передав строку, и результат сохраняем в fstName;
 
-            string lstName = writeRead($"Введите фамилию: ");
+            string lstName = WriteRead($"Введите фамилию: ");
 
-            string ptrNymic = writeRead($"Введите отчество: ");
+            string ptrNymic = WriteRead($"Введите отчество: ");
 
             Console.WriteLine();
 
-            string fullName = GetFullName(fstName, lstName, ptrNymic);
+            string fllName = GetFullName(fstName, lstName, ptrNymic); // Используем GetFullName;
 
-            return fullName;
+            return fllName;
         }
-        static string writeRead(string data)  // Метод вывода/чтения;
+        static string WriteRead(string data)  // Метод вывода/чтения c параметром data для передачи строки;
+
         {
             Console.WriteLine(data);
 
             return Console.ReadLine();
-        }
+        }   
     }
 }
