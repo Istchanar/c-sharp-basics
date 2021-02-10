@@ -42,9 +42,9 @@ namespace lesson2._1_5
 
             int tempMin = Convert.ToInt32(Console.ReadLine()); // Запоминаем ввод из консоли, преобразуем в int;
 
-            int tempMediun = (tempMax + tempMin) / 2; // Средняя температура равна сумме разделенной на кол-во измерений, т.е. два;
+            int tempMedium = (tempMax + tempMin) / 2; // Средняя температура равна сумме разделенной на кол-во измерений, т.е. два;
 
-            Console.WriteLine($"Средняя температура сегодня {tempMediun}, (min = {tempMin}, max = {tempMax})");
+            Console.WriteLine($"Средняя температура сегодня {tempMedium}, (min = {tempMin}, max = {tempMax})");
 
             Console.ReadLine();
 
