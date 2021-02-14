@@ -9,7 +9,7 @@ namespace Calculator
         {
             Console.SetWindowSize(130, 25);
 
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
 
             Console.WriteLine(string.Format("|{0,20}|{1,20}|{2,20}|{3,50}|", "PROCESSTIME", "PROCESSID", "PROCESSMEMORY", "PROCESSNAME"));
 
