@@ -9,7 +9,7 @@ namespace lesson7
 
             string greeting = Properties.Settings.Default.Hi;
 
-            Console.WriteLine($"{greeting}");
+            WriteString($"{greeting}");
 
             SetUserName();
 
@@ -23,9 +23,7 @@ namespace lesson7
 
             string profession = Properties.Settings.Default.Profession;
 
-            Console.WriteLine();
-
-            Console.WriteLine($"В настройках сейчас {userName}, {userAge}, {profession}");
+            WriteString($"В настройках сейчас {userName}, {userAge}, {profession}");
 
             Console.ReadLine();
 
@@ -38,9 +36,7 @@ namespace lesson7
 
             {
 
-                Console.WriteLine("Введите имя пользователя:");
-
-                Console.WriteLine();
+                WriteString($"Введите имя пользователя:");
 
                 Properties.Settings.Default.UserName = Console.ReadLine();
 
@@ -56,8 +52,7 @@ namespace lesson7
             if (string.IsNullOrEmpty(Properties.Settings.Default.UserAge))
 
             {
-
-                Console.WriteLine("Введите имя пользователя:");
+                WriteString($"Введите ваш возраст:");
 
                 Console.WriteLine();
 
@@ -76,8 +71,7 @@ namespace lesson7
             if (string.IsNullOrEmpty(Properties.Settings.Default.Profession))
 
             {
-
-                Console.WriteLine("Введите профессию");
+                WriteString($"Введите профессию:");
 
                 Console.WriteLine();
 
@@ -87,6 +81,13 @@ namespace lesson7
 
                 Properties.Settings.Default.Save();
             }
+        }
+
+        static void WriteString(string text)
+        {
+            Console.WriteLine(text);
+
+            Console.WriteLine();
         }
     }
 }
